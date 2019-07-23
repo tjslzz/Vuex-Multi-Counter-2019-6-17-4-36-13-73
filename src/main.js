@@ -9,12 +9,18 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state:{
-    count:0
+    count:0,
+    number:''
   },
   getters:{
     getCount:function(state){
       return function(){
         return state.count;
+      }
+    },
+    getNumber:function(state){
+      return function(){
+        return state.number;
       }
     }
   },
@@ -24,6 +30,9 @@ const store = new Vuex.Store({
     },
     sub(state,num){
       state.count-=num;
+    },
+    update(state,num){
+      state.number=num;
     }
   }
 })
